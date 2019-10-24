@@ -8,8 +8,8 @@ def readString(toRead):
     if type(toRead) != str:
         raise TypeError("Argument is not a string!")
     
-    ending = re.findall("[A-Za-z]+at ",toRead)#finds all words ending in 'at'
-    filtered = filter(lambda x: len(x) > 4, ending)#filters the words if theyre longer than 3 characters
+    ending = re.findall("[A-Za-z]*at\\b",toRead)#finds all words ending in 'at'
+    filtered = filter(lambda x: len(x) > 3, ending)#filters the words if theyre longer than 3 characters
     return filtered
 
 source = open('pg1342.txt')#read in the story
